@@ -44,7 +44,10 @@ const Dashboard = () => {
   }, [searchQuery]);
 
   const renderSurahItem = ({ item }) => (
-    <TouchableOpacity style={styles.fullWidthCard} onPress={() => {}}>
+    <TouchableOpacity
+      style={styles.fullWidthCard}
+      onPress={() => navigation.navigate("SurahDetails", { surah: item })}
+    >
       <Text style={[styles.text]}>{item.arabicName}</Text>
       <Text style={[styles.text]}>{item.englishName}</Text>
     </TouchableOpacity>
@@ -65,7 +68,6 @@ const Dashboard = () => {
             renderItem={renderSurahItem}
             keyExtractor={(item) => item.id.toString()}
             contentContainerStyle={styles.surrah}
-            // Move contentContainerStyle to this line
           />
         </View>
       )}
@@ -109,6 +111,6 @@ const styles = StyleSheet.create({
     borderRadius: 8,
     padding: 10,
     marginBottom: 5,
-    width: "100%", // Make the card take full width
+    width: "100%", // Make the card take full width
   },
 });
